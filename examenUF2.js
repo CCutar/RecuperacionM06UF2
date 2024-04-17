@@ -1,3 +1,26 @@
+// 1. Crea un programa que faci servir un array amb almenys 5 noms. Després utilitza una funció
+// per afegir un nom al final de l’array i una altra funció per eliminar el primer nom. Mostra
+// l’array resultat després de cada operació.
+
+// 2. Defineix un objecte de nom “Student” amb les propietats “name”, “age” i “course”. Crea un
+// mètode dins de l’objecte que imprimeix per consola una descripció de l’estudiant. Després
+// crea al menys dos instàncies de l’objecte i crida el mètode per mostrar la informació de
+// l’estudiant.
+
+// 3. Imagina que estas desenvolupant un joc. Crea un objecte que representi a un jugador amb
+// les propietats “name”, “level” i “point”. Després implementa un mètode que augmenten els
+// punts del jugador per 10 cada vegada que es cridi. Mostra com s'utilitza aquest objecte en
+// un escenari de joc simulat.
+
+// 4. Crea una funció que rep un array d'enters i retorna un array nou amb el nombres parells
+// ordenats de major a menor. Pots utilitzar les funcions d’ordenar com filter o sort.
+
+// 5. Imagina que estas desenvolupant una aplicació de gestió de llibres. Crea un objecte llibre
+// amb les propietats títol, autor i any de publicació. Implementa un mètode que calculi
+// l'antiguitat de llibre. Després crea varis instàncies de l’objecte i mostra la informació de
+// cada llibre juntament amb la seva antiguitat.
+
+
 // Punto 1
 let nombres = ["Juan", "María", "Pedro", "Ana", "Luis"];
 
