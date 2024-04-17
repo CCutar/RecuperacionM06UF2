@@ -1,0 +1,26 @@
+<!-- 1.Crea un programa que faci servir un array amb almenys 10 noms. Després utilitza una
+funció per afegir un nom al final de l’array i una altra funció per eliminar el primer nom.
+Mostra l’array resultat després de cada operació. (1 punts) -->
+
+<!DOCTYPE html>
+<html>
+<body>
+  <p>Hola Xavi</p>
+</body>
+<script>
+let nombres = ["Juan", "María", "Pedro", "Ana", "Luis", "Carlos", "Laura", "Marta", "Pablo", "Javier"];
+
+function añadirNombre(nombre) {
+    nombres.push(nombre);
+    console.log(nombres);
+  }
+
+function eliminarPrimerNombre() {
+    let primerNombre = nombres.shift();
+    console.log(nombres);
+}
+
+añadirNombre("Sofía");
+eliminarPrimerNombre();
+</script>
+</html> 

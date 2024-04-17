@@ -1,0 +1,106 @@
+<!-- 4. Suposem que estem desenvolupant un programa per gestionar clients web utilitzant un
+llenguatge de programació que permet treballar amb estructures definides per l'usuari.(4
+punts)
+
+Has decidit implementar la funcionalitat per emmagatzemar la informació dels clients
+utilitzant objectes personalitzats. Per fer-ho, has creat una classe anomenada "Client" amb
+propietats com ara nom, cognom, correu electrònic, etc.
+
+Ara, necessites implementar un mètode a la classe "Client" que permeti actualitzar la
+informació d'un client existent. El mètode ha d'acceptar com a paràmetres les noves dades
+del client i actualitzar les propietats corresponents de l'objecte.
+ 
+
+Com implementaries aquest mètode a la classe "Client" tenint en compte els següents
+criteris?
+
+1. Has d'utilitzar funcions definides per l'usuari per crear el mètode. (1punt)
+2. El mètode ha de reconèixer les característiques d'orientació a objectes del
+llenguatge i fer-ne ús. (1punt)
+3. El mètode ha de ser capaç d'actualitzar les propietats de l'objecte client amb les
+noves dades proporcionades. (3punt)
+Proporcionar un exemple de web que demostra com implementaries aquest mètode a la
+classe "Client", tenint en compte els punts esmentats anteriorment. -->
+
+<!DOCTYPE html>
+<html>
+  <title>Actualizar Clientes</title>
+<body>
+  <h2>Actualizar Clientes</h2>
+    <form id="clientInfo" onsubmit="return enviarFormulari()">
+      <label for="name">Name:</label>
+      <input type="text" id="name"><br>
+      <span id="nameError" class="error"></span><br>
+
+      <label for="surname">Surname:</label>
+      <input type="text" id="surname"><br>
+      <span id="surnameError" class="error"></span><br>
+
+      <label for="email">Email:</label>
+      <input type="text" id="email"><br>
+      <span id="emailError" class="error"></span><br>
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <h2>Client Table</h2>
+    <table id="clientTable">
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email Address</th>
+        </tr>
+    </table>
+<script>
+function enviarFormulari() {
+
+  var name = document.getElementById("name").value;
+  var surname = document.getElementById("surname").value;
+  var email = document.getElementById("email").value;
+
+  var isValid = true;
+
+  if (name === "") {
+    document.getElementById("nameError").innerText = "Enter name.";
+    isValid = false;
+  } else {
+    document.getElementById("nameError").innerText = "";
+  }
+
+  if (surname === "") {
+    document.getElementById("surnameError").innerText = "Enter surname.";
+    isValid = false;
+  } else {
+    document.getElementById("surnameError").innerText = "";
+  }
+
+  if (email === "") {
+    document.getElementById("emailError").innerText = "Enter email.";
+    isValid = false;
+  } else {
+    document.getElementById("emailError").innerText = "";
+  }
+
+  if (!isValid) {
+    return false;
+  }
+
+  var client = {
+    name: name,
+    surname: surname,
+    email: email,
+  };
+
+  var table = document.getElementById("clientTable");
+  var row = table.insertRow(-1);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  cell1.innerHTML = client.name;
+  cell2.innerHTML = client.surname;
+  cell3.innerHTML = client.email;
+}
+
+</script>
+</body>
+</html> 

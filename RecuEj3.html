@@ -1,0 +1,21 @@
+<!-- 3. Crea una funció que rep un array d'enters i retorna un array nou amb el nombres parells
+ordenats de major a menor. Pots utilitzar les funcions d’ordenar com filter o sort.(2 punts) -->
+
+<!DOCTYPE html>
+<html>
+<body>
+  <p>Hola Xavi</p>
+</body>
+<script>
+
+function ordenarNumerosPares(array) {
+    let numerosPares = array.filter(num => num % 2 === 0);
+    return numerosPares.sort((a, b) => b - a);
+}
+      
+    let numeros = [3, 7, 2, 8, 5, 10, 1, 6, 9, 4];
+    let numerosParesOrdenados = ordenarNumerosPares(numeros);
+    console.log("Numeros pares ordenados:", numerosParesOrdenados);
+
+</script>
+</html> 

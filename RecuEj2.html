@@ -1,0 +1,34 @@
+<!-- 2. Defineix un objecte de nom “Person” amb les propietats “name”, “age” i “course”. Crea un
+mètode dins de l’objecte que imprimeix per consola una descripció de l’estudiant. Després
+crea al menys dos instàncies de l’objecte i crida el mètode per mostrar la informació de
+l’estudiant.(2 punts)  -->
+
+<!DOCTYPE html>
+<html>
+<body>
+  <p>Hola Xavi</p>
+</body>
+<script>
+let Person = {
+    name: "Cristian",
+    age: 20,
+    course: "DAW",
+    describe: function() {
+      console.log(`Name: ${this.name}, Age: ${this.age}, Course: ${this.course}`);
+    }
+  };
+  
+  let person1 = Object.create(Person);
+  person1.name = "Alice";
+  person1.age = 22;
+  person1.course = "DAM";
+  
+  let person2 = Object.create(Person);
+  person2.name = "Bob";
+  person2.age = 25;
+  person2.course = "ASIX";
+  
+  person1.describe();
+  person2.describe();
+</script>
+</html> 
