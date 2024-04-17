@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulari d'Incidències</title>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .error {
+        color: red;
+    }
+</style>
+</head>
+<body>
+    <h2>Formulari d'Incidències</h2>
+    <form id="incidenciaForm" onsubmit="return enviarFormulari()">
+        <label for="estat">Estat:</label>
+        <select id="estat">
+            <option value="">Selecciona un estat</option>
+            <option value="nou">Nou</option>
+            <option value="tancada">Tancada</option>
+            <option value="en_curs">En Curs</option>
+            <option value="en_espera">En Espera</option>
+        </select><br><br>
+        <span id="estatError" class="error"></span><br>
+
+        <label for="impacte">Impacte:</label>
+        <select id="impacte">
+            <option value="">Selecciona un impacte</option>
+            <option value="mitja">Mitjà</option>
+            <option value="baix">Baix</option>
+            <option value="alt">Alt</option>
+        </select><br><br>
+        <span id="impacteError" class="error"></span><br>
+
+        <label for="prioritat">Prioritat:</label>
+        <select id="prioritat">
+            <option value="">Selecciona una prioritat</option>
+            <option value="urgent">Urgent</option>
+            <option value="mitjana">Mitjana</option>
+            <option value="baixa">Baixa</option>
+        </select><br><br>
+        <span id="prioritatError" class="error"></span><br>
+
+        <label for="duracio">Duració total (hores):</label>
+        <input type="number" id="duracio" min="1"><br>
+        <span id="duracioError" class="error"></span><br>
+
+        <label for="titol">Títol:</label>
+        <input type="text" id="titol"><br>
+        <span id="titolError" class="error"></span><br>
+
+        <label for="descripcio">Descripció:</label><br>
+        <textarea id="descripcio" rows="4" cols="50"></textarea><br>
+        <span id="descripcioError" class="error"></span><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <h2>Dades d'Incidències</h2>
+    <table id="taulaIncidencies">
+        <tr>
+            <th>Estat</th>
+            <th>Impacte</th>
+            <th>Prioritat</th>
+            <th>Duració Total</th>
+            <th>Títol</th>
+            <th>Descripció</th>
+        </tr>
+    </table>
+
+    <script>
+        function enviarFormulari() {
+            // Obtener los valores de los campos del formulario
+            var estat = document.getElementById("estat").value;
+            var impacte = document.getElementById("impacte").value;
+            var prioritat = document.getElementById("prioritat").value;
+            var duracio = document.getElementById("duracio").value;
+            var titol = document.getElementById("titol").value;
+            var descripcio = document.getElementById("descripcio").value;
+
+            // Validar que todos los campos estén completos
+            var isValid = true;
+
+            if (estat === "") {
+                document.getElementById("estatError").innerText = "Selecciona un estat.";
+                isValid = false;
+            } else {
+                document.getElementById("estatError").innerText = "";
+            }
+
+            if (impacte === "") {
+                document.getElementById("impacteError").innerText = "Selecciona un impacte.";
+                isValid = false;
+            } else {
+                document.getElementById("impacteError").innerText = "";
+            }
+
+            if (prioritat === "") {
+                document.getElementById("prioritatError").innerText = "Selecciona una prioritat.";
+                isValid = false;
+            } else {
+                document.getElementById("prioritatError").innerText = "";
+            }
+
+            if (duracio === "") {
+                document.getElementById("duracioError").innerText = "Introdueix una duració.";
+                isValid = false;
+            } else {
+                document.getElementById("duracioError").innerText = "";
+            }
+
+            if (titol === "") {
+                document.getElementById("titolError").innerText = "Introdueix un títol.";
+                isValid = false;
+            } else {
+                document.getElementById("titolError").innerText = "";
+            }
+
+            if (descripcio === "") {
+                document.getElementById("descripcioError").innerText = "Introdueix una descripció.";
+                isValid = false;
+            } else {
+                document.getElementById("descripcioError").innerText = "";
+            }
+
+            // Si no hay errores, enviar el formulario
+            if (!isValid) {
+                return false;
+            }
+
+            // Crear un objeto con los datos de la incidencia
+            var incidencia = {
+                estat: estat,
+                impacte: impacte,
+                prioritat: prioritat,
+                duracio: duracio,
+                titol: titol,
+                descripcio: descripcio
+            };
+
+            // Mostrar los datos de la incidencia en la tabla
+            var table = document.getElementById("taulaIncidencies");
+            var row = table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            cell1.innerHTML = incidencia.estat;
+            cell2.innerHTML = incidencia.impacte;
+            cell3.innerHTML = incidencia.prioritat;
+            cell4.innerHTML = incidencia.duracio;
+            cell5.innerHTML = incidencia.titol;
+            cell6.innerHTML = incidencia.descripcio;
+
+            // Limpiar el formulario después de enviar
+            document.getElementById("incidenciaForm").reset();
+
+            return false; // Para evitar el envío del formulario
+}   
+    </script>
+</body>
+</html>
